@@ -12,12 +12,17 @@ class Store extends Component {
     battle: false,
   }
 
-  togglePages = (key) => {this.setState({ pages: {...this.resetPages, [key]: true} })};
+  togglePages = (key) => this.setState({ pages: {...this.resetPages, [key]: true} });
 
+  selectAlly = (ally) => {
+    console.log('selecting ally', ally);
+    console.log(this.state.allySelection)
+    this.setState(previous => ({allySelection:[...previous.allySelection, ally]}))
+  }
 
   render() {
     return (
-      <Provider value={{...this.state, togglePages: this.togglePages}}>
+      <Provider value={{...this.state, togglePages: this.togglePages, selectAlly: this.selectAlly}}>
         {this.props.children}
       </Provider>
     )
