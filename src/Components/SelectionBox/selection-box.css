@@ -1,0 +1,30 @@
+.selection-box {
+  /* background: gray; */
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  background-size: 100% 100%;
+  color: white;
+}
+
+.selection-box-lightbox {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.selection-box-lightbox:hover {
+  background: #000000A0;
+}
+
+.selection-box-lightbox-data {
+  visibility: hidden;
+
+}
+
+.selection-box-lightbox:hover .selection-box-lightbox-data{
+  visibility: visible;
+}
