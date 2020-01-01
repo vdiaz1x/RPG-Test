@@ -1,7 +1,8 @@
 import React from 'react';
-import values from './values';
+// import values from './values';
 
-const Context = React.createContext(values);
+// const Context = React.createContext(values);
+const Context = React.createContext();
 
 export const Provider = Context.Provider
 export const Consumer = Context.Consumer
