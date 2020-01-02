@@ -1,3 +1,5 @@
+import allies from "./allies";
+
 const values = {
   // titles for the title page
   title: {
@@ -18,6 +20,8 @@ const values = {
     selection: false,
     battle: false,
   },
+  allies: allies,
+  allySelection: [],
 
 };
 

@@ -8,7 +8,9 @@ function Button(props) {
     <Consumer>
       {
         ({pages, togglePages}) => (
-        <button className="button" onClick={() => togglePages(props.next)}>Toggle {props.next}</button>
+        <button className="button" onClick={() => togglePages(props.next)}>
+          Toggle {props.next}
+        </button>
         )
       }
     </Consumer>

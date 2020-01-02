@@ -1,4 +1,11 @@
 .selection {
   background: black;
   color: blue;
+  height: 100%;
+  width: 100%;
+}
+
+.selection-box-container {
+  display: flex;
+  justify-content: space-evenly;
 }
