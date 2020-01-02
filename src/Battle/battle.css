@@ -1,4 +1,27 @@
 .battle {
   background: black;
-  color: blue;
+  color: white;
+}
+
+.battle-hud {
+  height: 15vh;
+}
+
+.battle-field {
+  display: flex;
+  height: 60vh;
+}
+
+.battle-status {
+  height: 25vh;
+}
+
+.battle-field-left,
+.battle-field-right {
+  width: 50%;
+  display: flex;
+}
+
+.battle-field-right {
+  justify-content: flex-end;
 }
