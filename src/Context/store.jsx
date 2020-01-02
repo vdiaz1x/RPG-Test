@@ -15,7 +15,7 @@ class Store extends Component {
   entityData = {
     ally: {
       array: "allySelection",
-      limit: 2,
+      limit: 3,
     },
     enemy: {
       array: "enemySelection",
@@ -27,7 +27,7 @@ class Store extends Component {
    * changes the page depending on what page you are on
    * @param {string} page the page to go to
    */
-  togglePages = (page) => this.setState({ pages: {...this.resetPages, [page]: true} });
+  togglePages = (page) => this.setState({ pages: { ...this.resetPages, [page]: true } });
 
   /**
    * adds the entity to entity storage array
@@ -36,7 +36,7 @@ class Store extends Component {
    */
   addEntity = (entity, entityArray) => {
     this.setState(previous =>
-      ({[entityArray]: [...previous[entityArray], entity]}),
+      ({ [entityArray]: [...previous[entityArray], entity] }),
       () => console.log(this.state[entityArray], entityArray)
     )
   };
@@ -48,7 +48,7 @@ class Store extends Component {
    */
   removeEntity = (entity, entityArray) => {
     this.setState(previous =>
-      ({[entityArray]: previous[entityArray].filter(item => item.id !== entity.id) }),
+      ({ [entityArray]: previous[entityArray].filter(item => item.id !== entity.id) }),
       () => console.log(this.state[entityArray], entityArray)
     )
   }
@@ -65,7 +65,7 @@ class Store extends Component {
     const array = this.state[entityArray]
     const found = array.some((item) => item.id === entity.id)
 
-    if(found) {
+    if (found) {
       this.removeEntity(entity, entityArray);
     } else {
       array.length < limit && this.addEntity(entity, entityArray);
@@ -86,9 +86,11 @@ class Store extends Component {
 
   render() {
     return (
-      <Provider value={{...this.state, togglePages: this.togglePages, selectEntity: {
-        selectAlly: this.selectAlly, selectEnemy: this.selectEnemy
-      }}}>
+      <Provider value={{
+        ...this.state, togglePages: this.togglePages, selectEntity: {
+          selectAlly: this.selectAlly, selectEnemy: this.selectEnemy
+        }
+      }}>
         {this.props.children}
       </Provider>
     )

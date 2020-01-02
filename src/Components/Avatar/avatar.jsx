@@ -6,10 +6,19 @@ function Avatar(props) {
   return (
 
     <section className="avatar">
-      {console.log('here', props)}
-      <div>{props.entity.name}</div>
-      <div>{props.entity.element}</div>
+
+      <div>
+        <span>{props.entity.name}</span>
+        <span>[{props.entity.element}]</span>
+      </div>
+
+      <div>
+        <span>HP: {props.entity.stats.hp}</span>/
+        <span>MP: {props.entity.stats.mp}</span>
+      </div>
+
       <img src={props.entity.img} alt="" />
+
     </section>
 
   );
