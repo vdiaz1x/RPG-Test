@@ -63,7 +63,7 @@ class Store extends Component {
   selectEntity = (entity, entityArray, limit) => {
 
     const array = this.state[entityArray]
-    const found = array.some((item) => item.id === entity.id)
+    const found = array.some(item => item.id === entity.id)
 
     if (found) {
       this.removeEntity(entity, entityArray);
@@ -87,10 +87,35 @@ class Store extends Component {
   selectAllyAttackSet = (moves) => {
     this.setState(
       ({ allyAttackSelection: moves }),
-      () => console.log("STATE", this.state.allyAttackSelection)
+      // () => console.log("STATE", this.state.allyAttackSelection)
     )
   }
-  selectAllyAttack = () => { }
+
+  selectAllyAttack = (move) => {
+
+    const array = this.state.turnMoveset;
+    const found = array.some(item => item.id === move.id)
+
+    if (found) {
+      this.removeAttack(move)
+    } else {
+      this.addAttack(move)
+    }
+  }
+
+  addAttack = (move) => {
+    this.setState(previous =>
+      ({ turnMoveset: [...previous.turnMoveset, move] }),
+      () => console.log(this.state.turnMoveset)
+    )
+  }
+
+  removeAttack = (move) => {
+    this.setState(previous =>
+      ({ turnMoveset: previous.turnMoveset.filter(item => item.id !== move.id) }),
+      () => console.log(this.state.turnMoveset)
+    )
+  }
 
   render() {
     return (
@@ -99,7 +124,8 @@ class Store extends Component {
         selectEntity: {
           selectAlly: this.selectAlly, selectEnemy: this.selectEnemy
         },
-        selectAllyAttackSet: this.selectAllyAttackSet
+        selectAllyAttackSet: this.selectAllyAttackSet,
+        selectAllyAttack: this.selectAllyAttack
       }}>
         {this.props.children}
       </Provider>

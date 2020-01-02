@@ -18,18 +18,20 @@ function Battle() {
             <section className="battle-field">
 
               <aside className="battle-field-left">
-                {enemySelection.map(enemy => <Avatar entity={enemy} key={enemy.id + enemy.name}></Avatar>)}
+                {enemySelection.map(enemy => <Avatar entity={enemy} ally={false} key={enemy.id + enemy.name}></Avatar>)}
               </aside>
 
               <aside className="battle-field-right">
-                {allySelection.map(ally => <Avatar entity={ally} key={ally.id + ally.name}></Avatar>)}
+                {allySelection.map(ally => <Avatar entity={ally} ally={true} key={ally.id + ally.name}></Avatar>)}
               </aside>
 
             </section>
 
             <section className="battle-status">
 
-              {allyAttackSelection.map(atk => { console.log("ATK", atk, allyAttackSelection); return <MoveBox atk={atk} key={atk.name + alert.dmg}></MoveBox> })}
+              <div className="battle-status-moveset">
+                {allyAttackSelection.map(atk => <MoveBox atk={atk} key={atk.name + alert.dmg}></MoveBox>)}
+              </div>
 
               <Button next={battle.navigation}></Button>
 

@@ -7,12 +7,14 @@ function MoveBox(props) {
   return (
     <Consumer>
       {
-        ({ selectEntity }) => (
+        ({ selectAllyAttack }) => (
 
-          <section>
-            {console.log("aaaay", props.atk)}
+          <section className="move-box" onClick={() => selectAllyAttack(props.atk)}>
+
             <div>{props.atk.name}</div>
             <div>{props.atk.dmg}</div>
+            <div>{props.atk.flavor}</div>
+
           </section>
 
         )
