@@ -12,27 +12,83 @@ class Store extends Component {
     battle: false,
   }
 
-  togglePages = (key) => this.setState({ pages: {...this.resetPages, [key]: true} });
+  entityData = {
+    ally: {
+      array: "allySelection",
+      limit: 2,
+    },
+    enemy: {
+      array: "enemySelection",
+      limit: 1,
+    },
+  }
 
-  selectAlly = (ally) => {
+  /**
+   * changes the page depending on what page you are on
+   * @param {string} page the page to go to
+   */
+  togglePages = (page) => this.setState({ pages: {...this.resetPages, [page]: true} });
 
-    const arr = this.state.allySelection
-    const found = arr.some((item) => item.id === ally.id)
+  /**
+   * adds the entity to entity storage array
+   * @param {object} entity the entity to add
+   * @param {array} entityArray the array to add the entity to
+   */
+  addEntity = (entity, entityArray) => {
+    this.setState(previous =>
+      ({[entityArray]: [...previous[entityArray], entity]}),
+      () => console.log(this.state[entityArray], entityArray)
+    )
+  };
+
+  /**
+   * removes the entity to entity storage array
+   * @param {object} entity the entity to remove
+   * @param {array} entityArray the array to remove the entity from
+   */
+  removeEntity = (entity, entityArray) => {
+    this.setState(previous =>
+      ({[entityArray]: previous[entityArray].filter(item => item.id !== entity.id) }),
+      () => console.log(this.state[entityArray], entityArray)
+    )
+  }
+
+  /**
+   * selects the entity to store it in the correct array in state
+   * if it's not in the array, or removes it if it's inside the array
+   * @param {object} entity the entity to be added or removed to the array
+   * @param {string} entityArray the entity array for storage
+   * @param {number} limit the limit on how many entities can be stored in the array
+   */
+  selectEntity = (entity, entityArray, limit) => {
+
+    const array = this.state[entityArray]
+    const found = array.some((item) => item.id === entity.id)
 
     if(found) {
-      this.removeAlly(ally);
+      this.removeEntity(entity, entityArray);
     } else {
-      arr.length < 2 && this.addAlly(ally);
+      array.length < limit && this.addEntity(entity, entityArray);
     }
 
   }
 
-  addAlly = (ally) => this.setState(previous => ({allySelection: [...previous.allySelection, ally]}), ()=>console.log(this.state.allySelection))
-  removeAlly = (ally) => this.setState(previous => ({allySelection: previous.allySelection.filter(item => item.id !== ally.id) }), ()=>console.log(this.state.allySelection))
+  /**
+   * specific selectEntity call for allies
+   * @param {object} ally the ally to add
+   */
+  selectAlly = (ally) => this.selectEntity(ally, this.entityData.ally.array, this.entityData.ally.limit);
+  /**
+   * specific selectEntity call for enemies
+   * @param {object} enemy the enemy to add
+   */
+  selectEnemy = (enemy) => this.selectEntity(enemy, this.entityData.enemy.array, this.entityData.enemy.limit);
 
   render() {
     return (
-      <Provider value={{...this.state, togglePages: this.togglePages, selectAlly: this.selectAlly}}>
+      <Provider value={{...this.state, togglePages: this.togglePages, selectEntity: {
+        selectAlly: this.selectAlly, selectEnemy: this.selectEnemy
+      }}}>
         {this.props.children}
       </Provider>
     )
