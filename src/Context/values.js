@@ -1,4 +1,5 @@
 import allies from "./allies";
+import enemies from "./enemies";
 
 const values = {
   // titles for the title page
@@ -9,6 +10,8 @@ const values = {
   },
   selection: {
     main: "SELECT",
+    ally_subtitle: "SELECT ALLIES",
+    enemy_subtitle: "SELECT ENEMIES",
     navigation: "battle"
   },
   battle: {
@@ -22,6 +25,8 @@ const values = {
   },
   allies: allies,
   allySelection: [],
+  enemies: enemies,
+  enemySelection: [],
 
 };
 

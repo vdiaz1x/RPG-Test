@@ -15,13 +15,21 @@ function Selection() {
         /**
          * extrating the selection and allies information from the context
          */
-        ({selection, allies}) => (
+        ({selection, allies, enemies}) => (
           <section className="selection">
 
             <h1 className="selection-main">{selection.main}</h1>
 
+            <h3>{selection.enemy_subtitle}</h3>
+
             <section className="selection-box-container">
-              {allies.map(ally => <SelectionBox data={ally} key={ally.id}></SelectionBox>)}
+              {enemies.map(enemy => <SelectionBox data={enemy} entity={"selectEnemy"} key={enemy.id + 'e'}></SelectionBox>)}
+            </section>
+
+            <h3>{selection.ally_subtitle}</h3>
+
+            <section className="selection-box-container">
+              {allies.map(ally => <SelectionBox data={ally} entity={"selectAlly"} key={ally.id  + 'a'}></SelectionBox>)}
             </section>
 
             <Button next={selection.navigation}></Button>
