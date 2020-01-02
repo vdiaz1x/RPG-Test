@@ -7,7 +7,14 @@ const enemies = [
     stats: {
       hp: 1000,
       mp: 1000
-    }
+    },
+    atks: [
+      {
+        name: "atk1",
+        dmg: 50,
+        flavor: "generic magical attack"
+      }
+    ]
   },
   {
     name: "Beelzebub",
@@ -17,7 +24,14 @@ const enemies = [
     stats: {
       hp: 1000,
       mp: 1000
-    }
+    },
+    atks: [
+      {
+        name: "atk1",
+        dmg: 50,
+        flavor: "generic magical attack"
+      }
+    ]
   },
 ]
 

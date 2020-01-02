@@ -7,7 +7,24 @@ const allies = [
     stats: {
       hp: 1000,
       mp: 1000
-    }
+    },
+    atks: [
+      {
+        name: "atk1",
+        dmg: 50,
+        flavor: "generic magical attack"
+      },
+      {
+        name: "atk2",
+        dmg: 150,
+        flavor: "generic stronger magical attack"
+      },
+      {
+        name: "atk2",
+        dmg: 350,
+        flavor: "generic strongest magical attack"
+      },
+    ]
   },
   {
     name: "Wave",
@@ -17,7 +34,14 @@ const allies = [
     stats: {
       hp: 1000,
       mp: 1000
-    }
+    },
+    atks: [
+      {
+        name: "atk1",
+        dmg: 50,
+        flavor: "generic magical attack"
+      },
+    ]
   },
   {
     name: "Breeze",
@@ -27,7 +51,24 @@ const allies = [
     stats: {
       hp: 1000,
       mp: 1000
-    }
+    },
+    atks: [
+      {
+        name: "atk1",
+        dmg: 50,
+        flavor: "generic magical attack"
+      },
+      {
+        name: "atk2",
+        dmg: 150,
+        flavor: "generic stronger magical attack"
+      },
+      {
+        name: "atk2",
+        dmg: 350,
+        flavor: "generic strongest magical attack"
+      },
+    ]
   },
   {
     name: "Stone",
@@ -37,7 +78,24 @@ const allies = [
     stats: {
       hp: 1000,
       mp: 1000
-    }
+    },
+    atks: [
+      {
+        name: "atk1",
+        dmg: 50,
+        flavor: "generic magical attack"
+      },
+      {
+        name: "atk2",
+        dmg: 150,
+        flavor: "generic stronger magical attack"
+      },
+      {
+        name: "atk2",
+        dmg: 350,
+        flavor: "generic strongest magical attack"
+      },
+    ]
   },
 ]
 

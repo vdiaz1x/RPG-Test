@@ -27,6 +27,7 @@ const values = {
   allySelection: [],
   enemies: enemies,
   enemySelection: [],
+  allyAttackSelection: []
 
 };
 

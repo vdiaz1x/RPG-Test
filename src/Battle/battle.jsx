@@ -3,13 +3,14 @@ import './battle.css'
 import { Consumer } from '../Context/context';
 import Button from '../Components/Button/button';
 import Avatar from '../Components/Avatar/avatar';
+import MoveBox from '../Components/MoveBox/move-box';
 
 function Battle() {
 
   return (
     <Consumer>
       {
-        ({ battle, allySelection, enemySelection }) => (
+        ({ battle, allySelection, enemySelection, allyAttackSelection }) => (
           < section className="battle">
 
             <section className="battle-hud"></section>
@@ -27,7 +28,11 @@ function Battle() {
             </section>
 
             <section className="battle-status">
+
+              {allyAttackSelection.map(atk => { console.log("ATK", atk, allyAttackSelection); return <MoveBox atk={atk} key={atk.name + alert.dmg}></MoveBox> })}
+
               <Button next={battle.navigation}></Button>
+
             </section>
 
           </section>

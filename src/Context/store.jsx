@@ -37,7 +37,7 @@ class Store extends Component {
   addEntity = (entity, entityArray) => {
     this.setState(previous =>
       ({ [entityArray]: [...previous[entityArray], entity] }),
-      () => console.log(this.state[entityArray], entityArray)
+      // () => console.log(this.state[entityArray], entityArray)
     )
   };
 
@@ -49,7 +49,7 @@ class Store extends Component {
   removeEntity = (entity, entityArray) => {
     this.setState(previous =>
       ({ [entityArray]: previous[entityArray].filter(item => item.id !== entity.id) }),
-      () => console.log(this.state[entityArray], entityArray)
+      // () => console.log(this.state[entityArray], entityArray)
     )
   }
 
@@ -84,12 +84,22 @@ class Store extends Component {
    */
   selectEnemy = (enemy) => this.selectEntity(enemy, this.entityData.enemy.array, this.entityData.enemy.limit);
 
+  selectAllyAttackSet = (moves) => {
+    this.setState(
+      ({ allyAttackSelection: moves }),
+      () => console.log("STATE", this.state.allyAttackSelection)
+    )
+  }
+  selectAllyAttack = () => { }
+
   render() {
     return (
       <Provider value={{
-        ...this.state, togglePages: this.togglePages, selectEntity: {
+        ...this.state, togglePages: this.togglePages,
+        selectEntity: {
           selectAlly: this.selectAlly, selectEnemy: this.selectEnemy
-        }
+        },
+        selectAllyAttackSet: this.selectAllyAttackSet
       }}>
         {this.props.children}
       </Provider>

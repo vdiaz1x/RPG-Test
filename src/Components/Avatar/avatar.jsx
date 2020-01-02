@@ -1,25 +1,34 @@
 import React from 'react';
 import './avatar.css'
+import { Consumer } from '../../Context/context';
 
 function Avatar(props) {
 
   return (
 
-    <section className="avatar">
+    <Consumer>
+      {
+        ({ selectAllyAttackSet }) => (
 
-      <div>
-        <span>{props.entity.name}</span>
-        <span>[{props.entity.element}]</span>
-      </div>
+          <section className="avatar" onClick={() => { selectAllyAttackSet(props.entity.atks) }}>
 
-      <div>
-        <span>HP: {props.entity.stats.hp}</span>/
-        <span>MP: {props.entity.stats.mp}</span>
-      </div>
+            <div>
+              <span>{props.entity.name}</span>
+              <span>[{props.entity.element}]</span>
+            </div>
 
-      <img src={props.entity.img} alt="" />
+            <div>
+              <span>HP: {props.entity.stats.hp}</span>/
+              <span>MP: {props.entity.stats.mp}</span>
+            </div>
 
-    </section>
+            <img src={props.entity.img} alt="" />
+
+          </section>
+
+        )
+      }
+    </Consumer>
 
   );
 }
