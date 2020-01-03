@@ -7,9 +7,9 @@ function MoveBox(props) {
   return (
     <Consumer>
       {
-        ({ selectAllyAttack }) => (
+        ({ selectAllyAttack, allyAttackSelectionId }) => (
 
-          <section className="move-box" onClick={() => selectAllyAttack(props.atk)}>
+          <section className="move-box" onClick={() => selectAllyAttack(props.atk, allyAttackSelectionId)}>
 
             <div>{props.atk.name}</div>
             <div>{props.atk.dmg}</div>

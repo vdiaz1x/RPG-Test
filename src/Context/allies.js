@@ -14,25 +14,29 @@ const allies = [
         name: "atk1",
         id: 1,
         dmg: 50,
-        flavor: "generic magical attack"
+        flavor: "generic magical attack",
+        owner: 1
       },
       {
         name: "atk2",
         dmg: 150,
         id: 2,
-        flavor: "generic stronger magical attack"
+        flavor: "generic stronger magical attack",
+        owner: 1
       },
       {
         name: "atk3",
         dmg: 350,
         id: 3,
-        flavor: "generic strongest magical attack"
+        flavor: "generic strongest magical attack",
+        owner: 1
       },
       {
         name: "atk4",
         dmg: 650,
         id: 4,
-        flavor: "generic strongest magical attack again"
+        flavor: "generic strongest magical attack again",
+        owner: 1
       },
     ]
   },
@@ -51,24 +55,28 @@ const allies = [
         name: "atk1",
         dmg: 50,
         id: 5,
-        flavor: "generic magical attack"
+        flavor: "generic magical attack",
+        owner: 2
       },
       {
         name: "atk2",
         dmg: 150,
         id: 6,
-        flavor: "generic stronger magical attack"
+        flavor: "generic stronger magical attack",
+        owner: 2
       },
       {
         name: "atk2",
-        dmg: 7,
-        id: 1,
-        flavor: "generic strongest magical attack"
+        dmg: 350,
+        id: 7,
+        flavor: "generic strongest magical attack",
+        owner: 2
       }, {
         name: "atk4",
         dmg: 650,
         id: 8,
-        flavor: "generic strongest magical attack again"
+        flavor: "generic strongest magical attack again",
+        owner: 2
       },
     ]
   },
@@ -87,25 +95,29 @@ const allies = [
         name: "atk1",
         dmg: 50,
         id: 9,
-        flavor: "generic magical attack"
+        flavor: "generic magical attack",
+        owner: 3
       },
       {
         name: "atk2",
         dmg: 150,
         id: 10,
-        flavor: "generic stronger magical attack"
+        flavor: "generic stronger magical attack",
+        owner: 3
       },
       {
         name: "atk2",
         dmg: 350,
         id: 11,
-        flavor: "generic strongest magical attack"
+        flavor: "generic strongest magical attack",
+        owner: 3
       },
       {
         name: "atk4",
         dmg: 650,
         id: 12,
-        flavor: "generic strongest magical attack again"
+        flavor: "generic strongest magical attack again",
+        owner: 3
       },
     ]
   },
@@ -124,25 +136,29 @@ const allies = [
         name: "atk1",
         dmg: 50,
         id: 13,
-        flavor: "generic magical attack"
+        flavor: "generic magical attack",
+        owner: 4
       },
       {
         name: "atk2",
         dmg: 150,
         id: 14,
-        flavor: "generic stronger magical attack"
+        flavor: "generic stronger magical attack",
+        owner: 4
       },
       {
         name: "atk2",
         dmg: 350,
         id: 15,
-        flavor: "generic strongest magical attack"
+        flavor: "generic strongest magical attack",
+        owner: 4
       },
       {
         name: "atk4",
         dmg: 650,
         id: 16,
-        flavor: "generic strongest magical attack again"
+        flavor: "generic strongest magical attack again",
+        owner: 4
       },
     ]
   },

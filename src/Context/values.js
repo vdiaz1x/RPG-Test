@@ -28,6 +28,7 @@ const values = {
   enemies: enemies,
   enemySelection: [],
   allyAttackSelection: [],
+  allyAttackSelectionId: 0,
   turnMoveset: []
 
 };

@@ -30,7 +30,7 @@ function Battle() {
             <section className="battle-status">
 
               <div className="battle-status-moveset">
-                {allyAttackSelection.map(atk => <MoveBox atk={atk} key={atk.name + alert.dmg}></MoveBox>)}
+                {allyAttackSelection.map(atk => <MoveBox atk={atk} key={atk.name + atk.dmg}></MoveBox>)}
               </div>
 
               <Button next={battle.navigation}></Button>

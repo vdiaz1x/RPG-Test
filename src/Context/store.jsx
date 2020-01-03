@@ -78,42 +78,63 @@ class Store extends Component {
    * @param {object} ally the ally to add
    */
   selectAlly = (ally) => this.selectEntity(ally, this.entityData.ally.array, this.entityData.ally.limit);
+
   /**
    * specific selectEntity call for enemies
    * @param {object} enemy the enemy to add
    */
   selectEnemy = (enemy) => this.selectEntity(enemy, this.entityData.enemy.array, this.entityData.enemy.limit);
 
-  selectAllyAttackSet = (moves) => {
+  /**
+   * selects a set of attacks from an ally to render on the moveset display
+   * @param {array} moves the ally's moves to render
+   * @param {number} id the id of the ally whose moves were chosen
+   */
+  selectAllyAttackSet = (moves, id) => {
     this.setState(
-      ({ allyAttackSelection: moves }),
+      ({ allyAttackSelection: moves, allyAttackSelectionId: id }),
       // () => console.log("STATE", this.state.allyAttackSelection)
     )
   }
 
-  selectAllyAttack = (move) => {
+  /**
+   * selectst an ally attack to either enter or remove into the turn moveset array
+   * @param {object} move the move to either enter or remove from the array
+   * @param {number} id the id of the ally whose moves were chosen
+   */
+  selectAllyAttack = (move, id) => {
 
     const array = this.state.turnMoveset;
-    const found = array.some(item => item.id === move.id)
+
+    const found = array.find(item => item.id === move.id)
+    const currentChosen = array.some(item => item.owner === id)
 
     if (found) {
       this.removeAttack(move)
     } else {
-      this.addAttack(move)
+      !currentChosen && this.addAttack(move)
     }
   }
 
+  /**
+   * select an attack to enter into the array for the turn's moves
+   * @param {object} move the move chosen to enter
+   */
   addAttack = (move) => {
     this.setState(previous =>
       ({ turnMoveset: [...previous.turnMoveset, move] }),
-      () => console.log(this.state.turnMoveset)
+      () => console.log("added", this.state.turnMoveset)
     )
   }
 
+  /**
+   * select an attack to remove from the array for the turn's moves
+   * @param {object} move the move chosen to remove
+   */
   removeAttack = (move) => {
     this.setState(previous =>
       ({ turnMoveset: previous.turnMoveset.filter(item => item.id !== move.id) }),
-      () => console.log(this.state.turnMoveset)
+      () => console.log("removed", this.state.turnMoveset)
     )
   }
 

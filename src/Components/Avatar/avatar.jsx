@@ -10,7 +10,7 @@ function Avatar(props) {
       {
         ({ selectAllyAttackSet }) => (
 
-          <section className="avatar" onClick={() => { props.ally && selectAllyAttackSet(props.entity.atks) }}>
+          <section className="avatar" onClick={() => { props.ally && selectAllyAttackSet(props.entity.atks, props.entity.id) }}>
 
             <div>
               <span>{props.entity.name}</span>
